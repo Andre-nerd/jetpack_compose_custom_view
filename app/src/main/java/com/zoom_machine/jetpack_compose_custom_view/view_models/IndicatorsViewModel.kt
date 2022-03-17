@@ -17,16 +17,28 @@ class IndicatorsViewModel:ViewModel() {
     private val _progress = MutableStateFlow(0)
     val progress :StateFlow<Int> = _progress.asStateFlow()
 
+    private val _progressOutput = MutableStateFlow(0)
+    val progressOutput  :StateFlow<Int> = _progressOutput .asStateFlow()
+
     init {
         getProgressIndicator(true)
+        getProgressOutput(true)
     }
 
 
     private fun getProgressIndicator(condition:Boolean){
         viewModelScope.launch(Dispatchers.IO) {
             repository.progressIndicator(condition).collect {
-                Log.d("PRGS","getProgressIndicator() in VM collect = $it")
                 _progress.value = it
+            }
+        }
+    }
+
+
+    private fun getProgressOutput(condition:Boolean){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.progressOutput(condition).collect {
+                _progressOutput.value = it
             }
         }
     }
@@ -34,5 +46,6 @@ class IndicatorsViewModel:ViewModel() {
     override fun onCleared() {
         super.onCleared()
         getProgressIndicator(false)
+        getProgressOutput(false)
     }
 }

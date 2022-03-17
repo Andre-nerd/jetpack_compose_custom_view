@@ -5,10 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.zoom_machine.jetpack_compose_custom_view.screens.BottomBarScreen
-import com.zoom_machine.jetpack_compose_custom_view.screens.HomeScreen
-import com.zoom_machine.jetpack_compose_custom_view.screens.ProfileScreen
-import com.zoom_machine.jetpack_compose_custom_view.screens.SettingScreen
+import com.zoom_machine.jetpack_compose_custom_view.screens.*
 import com.zoom_machine.jetpack_compose_custom_view.view_models.IndicatorsViewModel
 
 
@@ -16,16 +13,16 @@ import com.zoom_machine.jetpack_compose_custom_view.view_models.IndicatorsViewMo
 fun BottomNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = BottomBarScreen.Home.route
+        startDestination = BottomBarScreen.Widget.route
     ) {
-        composable(route = BottomBarScreen.Home.route){
-            HomeScreen()
+        composable(route = BottomBarScreen.Widget.route){
+            WidgetScreen()
         }
-        composable(route = BottomBarScreen.Profile.route){
-            ProfileScreen()
+        composable(route = BottomBarScreen.Cartoon.route){
+            CartoonScreen()
         }
-        composable(route = BottomBarScreen.Setting.route){
-            SettingScreen()
+        composable(route = BottomBarScreen.CatHouse.route){
+            CatHouseScreen()
         }
     }
 }

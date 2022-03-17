@@ -13,4 +13,13 @@ class IndicatorsRepositoryImpl(): IndicatorsRepository {
             }
         }
     }
+
+    override suspend fun progressOutput(condition:Boolean): Flow<Int> {
+        return flow{
+            while(condition) {
+                kotlinx.coroutines.delay(1200)
+                emit((0..105).random())
+            }
+        }
+    }
 }

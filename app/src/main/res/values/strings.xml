@@ -2,4 +2,7 @@
     <string name="app_name">jetpack_compose_custom_view</string>
     <string name="navigation_icon">Navigation Icon</string>
     <string name="home">Home</string>
+    <string name="im_cote">Я КотЭ</string>
+    <string name="click_me">"Click on the cat\nand take him to the house"</string>
+    <string name="thanks_a_lot">Thank a lot!</string>
 </resources>

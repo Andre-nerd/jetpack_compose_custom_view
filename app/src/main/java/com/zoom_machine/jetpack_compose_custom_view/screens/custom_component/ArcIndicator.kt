@@ -32,6 +32,8 @@ fun ArcIndicator(
     canvasSize: Dp = 200.dp,
     indicatorValue: Int = 0,
     maxIndicatorValue: Int = 100,
+    arcMaxAngle:Float = 2.4f,
+    startAngle:Float = 150f,
     backgroundIndicatorColor: Color = MaterialTheme.colors.onSurface.copy(alpha = 0.1f),
     backgroundIndicatorStrokeWidth: Float = (canvasSize.value / 3),
     foregroundIndicatorColor: Color = MaterialTheme.colors.primary,
@@ -64,7 +66,7 @@ fun ArcIndicator(
         (animatedIndicatorValue / maxIndicatorValue) * 100
 
     val sweepAngle by animateFloatAsState(
-        targetValue = (2.4 * percentage).toFloat(),
+        targetValue = (arcMaxAngle * percentage).toFloat(),
         animationSpec = tween(1000)
     )
 
@@ -90,12 +92,15 @@ fun ArcIndicator(
                     componentSize = componentSize,
                     indicatorColor = backgroundIndicatorColor,
                     indicatorStrokeWidth = backgroundIndicatorStrokeWidth,
+                    arcMaxAngle = arcMaxAngle,
+                    startAngle = startAngle
                 )
                 foregroundIndicator(
                     sweepAngle = sweepAngle,
                     componentSize = componentSize,
                     indicatorColor = foregroundIndicatorColor,
                     indicatorStrokeWidth = foregroundIndicatorStrokeWidth,
+                    startAngle = startAngle
                 )
             },
         verticalArrangement = Arrangement.Center,
@@ -117,12 +122,14 @@ fun DrawScope.backgroundIndicator(
     componentSize: Size,
     indicatorColor: Color,
     indicatorStrokeWidth: Float,
+    arcMaxAngle:Float,
+    startAngle:Float
 ) {
     drawArc(
         size = componentSize,
         color = indicatorColor,
-        startAngle = 150f,
-        sweepAngle = 240f,
+        startAngle = startAngle,
+        sweepAngle = arcMaxAngle*100,
         useCenter = false,
         style = Stroke(
             width = indicatorStrokeWidth,
@@ -140,11 +147,12 @@ fun DrawScope.foregroundIndicator(
     componentSize: Size,
     indicatorColor: Color,
     indicatorStrokeWidth: Float,
+    startAngle:Float
 ) {
     drawArc(
         size = componentSize,
         color = indicatorColor,
-        startAngle = 150f,
+        startAngle = startAngle,
         sweepAngle = sweepAngle,
         useCenter = false,
         style = Stroke(

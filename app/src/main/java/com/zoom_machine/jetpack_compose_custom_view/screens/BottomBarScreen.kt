@@ -2,9 +2,7 @@ package com.zoom_machine.jetpack_compose_custom_view.screens
 
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class BottomBarScreen(
@@ -12,21 +10,21 @@ sealed class BottomBarScreen(
     val title: String,
     val icon: ImageVector
 ) {
-    object Home : BottomBarScreen(
-        route = "Home",
-        title = "Home",
+    object Widget : BottomBarScreen(
+        route = "Widget",
+        title = "Widget",
+        icon = Icons.Default.AddCircle
+    )
+
+    object Cartoon : BottomBarScreen(
+        route = "Cartoon",
+        title = "Cartoon",
+        icon = Icons.Default.Star
+    )
+
+    object CatHouse : BottomBarScreen(
+        route = "Cat House",
+        title = "Cat House",
         icon = Icons.Default.Home
-    )
-
-    object Profile : BottomBarScreen(
-        route = "Profile",
-        title = "Profile",
-        icon = Icons.Default.Person
-    )
-
-    object Setting : BottomBarScreen(
-        route = "Setting",
-        title = "Setting",
-        icon = Icons.Default.Settings
     )
 }
