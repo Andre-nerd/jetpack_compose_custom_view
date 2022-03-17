@@ -1,5 +1,6 @@
 package com.zoom_machine.jetpack_compose_custom_view.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
