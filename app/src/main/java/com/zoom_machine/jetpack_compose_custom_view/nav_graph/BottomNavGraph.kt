@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.zoom_machine.jetpack_compose_custom_view.di.DaggerScreenCartoonComponent
 import com.zoom_machine.jetpack_compose_custom_view.di.DaggerScreenWidgetComponent
 import com.zoom_machine.jetpack_compose_custom_view.di.daggerViewModel
 import com.zoom_machine.jetpack_compose_custom_view.screens.*
 import com.zoom_machine.jetpack_compose_custom_view.view_models.IndicatorsViewModel
+import com.zoom_machine.jetpack_compose_custom_view.view_models.RickMortyViewModel
 
 
 @Composable
@@ -25,7 +27,12 @@ fun BottomNavGraph(navController: NavHostController) {
             WidgetScreen(viewModel = viewModel)
         }
         composable(route = BottomBarScreen.Cartoon.route){
-            CartoonScreen()
+            val component = DaggerScreenCartoonComponent.builder().build()
+            val viewModel: RickMortyViewModel = daggerViewModel {
+                component.getViewModel()
+            }
+
+            CartoonScreen(viewModel = viewModel)
         }
         composable(route = BottomBarScreen.CatHouse.route){
             CatHouseScreen()

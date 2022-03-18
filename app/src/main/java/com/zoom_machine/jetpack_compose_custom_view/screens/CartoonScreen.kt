@@ -33,7 +33,7 @@ import com.zoom_machine.jetpack_compose_custom_view.view_models.RickMortyViewMod
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-fun CartoonScreen(viewModel: RickMortyViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun CartoonScreen(viewModel: RickMortyViewModel) {
     CharacterList(characters = viewModel.characters)
 }
 
