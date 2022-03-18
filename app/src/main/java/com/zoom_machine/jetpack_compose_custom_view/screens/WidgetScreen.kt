@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun WidgetScreen(viewModel: IndicatorsViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun WidgetScreen(viewModel: IndicatorsViewModel) {
 
     val progressIndicator = remember { mutableStateOf(0) }
     val progressOutput = remember { mutableStateOf(0) }

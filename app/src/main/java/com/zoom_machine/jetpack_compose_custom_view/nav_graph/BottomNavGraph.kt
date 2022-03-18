@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.zoom_machine.jetpack_compose_custom_view.di.DaggerScreenWidgetComponent
+import com.zoom_machine.jetpack_compose_custom_view.di.daggerViewModel
 import com.zoom_machine.jetpack_compose_custom_view.screens.*
 import com.zoom_machine.jetpack_compose_custom_view.view_models.IndicatorsViewModel
 
@@ -16,7 +18,11 @@ fun BottomNavGraph(navController: NavHostController) {
         startDestination = BottomBarScreen.Widget.route
     ) {
         composable(route = BottomBarScreen.Widget.route){
-            WidgetScreen()
+            val component = DaggerScreenWidgetComponent.builder().build()
+            val viewModel: IndicatorsViewModel = daggerViewModel {
+                component.getViewModel()
+            }
+            WidgetScreen(viewModel = viewModel)
         }
         composable(route = BottomBarScreen.Cartoon.route){
             CartoonScreen()
