@@ -2,8 +2,9 @@ package com.zoom_machine.jetpack_compose_custom_view.data
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class IndicatorsRepositoryImpl(): IndicatorsRepository {
+class IndicatorsRepositoryImpl @Inject constructor(): IndicatorsRepository {
 
     override suspend fun progressIndicator(condition:Boolean): Flow<Int> {
         return flow{
