@@ -110,7 +110,7 @@ fun TextTapMe(messageText: String) {
         transitionSpec = { tween(3000) },
         label = ""
     ) { if (it) 1f else 0f }
-    Box(modifier = Modifier.width(40.dp)) {
+    Box(modifier = Modifier.fillMaxSize()) {
         Text(
             text = messageText,
             modifier = Modifier
@@ -129,7 +129,7 @@ fun CoteDragAndDrop(
     onComplete: () -> Unit
 ) {
     val transformOriginTopCenter: TransformOrigin = TransformOrigin(0.5f, 0f)
-    val showListOfHeroes = remember { mutableStateOf(false) }
+    val isCatsInHouse = remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
     val offset = remember { Animatable(Offset(104f, 100f), Offset.VectorConverter) }
 
@@ -137,8 +137,8 @@ fun CoteDragAndDrop(
 
         val x = offset.value.x.roundToInt()
         val y = offset.value.y.roundToInt()
-        showListOfHeroes.value = (x in 15..200) && (y in -940..-520)
-        if (showListOfHeroes.value) {
+        isCatsInHouse.value = (x in 15..200) && (y in -940..-520)
+        if (isCatsInHouse.value) {
             onComplete()
         }
 

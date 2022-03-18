@@ -12,7 +12,7 @@ sealed class BottomBarScreen(
 ) {
     object Widget : BottomBarScreen(
         route = "Widget",
-        title = "Widget",
+        title = "UI Components",
         icon = Icons.Default.AddCircle
     )
 
