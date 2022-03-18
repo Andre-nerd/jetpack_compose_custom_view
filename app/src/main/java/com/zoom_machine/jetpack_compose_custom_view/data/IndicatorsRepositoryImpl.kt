@@ -1,5 +1,6 @@
 package com.zoom_machine.jetpack_compose_custom_view.data
 
+import com.zoom_machine.jetpack_compose_custom_view.domain.IndicatorsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
