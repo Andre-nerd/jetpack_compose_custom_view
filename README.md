@@ -1,3 +1,4 @@
+March 2022
 # Custom UI component and Animation
 Custom UI components - Jetpack Compose Canvas, UI – Jetpack Compose, Navigation - Jetpack Compose Navigation, MVVM, Animation text and images - Jetpack Compose Animation, REST API – Retrofit,  Paging3 for Compose, Flow state. Dagger 2.  The application contain three screens: Custom UI components, List of The Rick and Morty characters, Text and Image animation
 
